@@ -69,9 +69,9 @@
                   <h1 style="margin-bottom: 40px">Mark Körner</h1>
                   <h3 style="color: #B0A5A1">Data Engineering Graduate Student, Aspiring Data Scientist</h3>
                   <ul class="social">
-                      <li><a href="https://www.linkedin.com/in/mark-koerner/"><i class="ion-social-linkedin"></i></a></li>
-                      <li><a href="https://github.com/markckoerner"><i class="ion-social-github"></i></a></li>
-                      <li><a href="mailto:mark.c.koerner@gmail.com"><i class="ion-email-unread"></i></a></li>
+                      <li><a href="https://www.linkedin.com/in/mark-koerner/" onClick="ga('send', 'event', 'social', 'click-linkedin','LinkedIn', 1);"><i class="ion-social-linkedin"></i></a></li>
+                      <li><a href="https://github.com/markckoerner" onClick="ga('send', 'event', 'social', 'click-github', 'GitHub',1);"><i class="ion-social-github"></i></a></li>
+                      <li><a href="mailto:mark.c.koerner@gmail.com" onClick="ga('send', 'event', 'social', 'click-email', 'Email',1);"><i class="ion-email-unread"></i></a></li>
                   </ul>
               </div>
           </div>
@@ -112,7 +112,7 @@
           </div> -->
           <div class="col-md-12" data-aos="fade-up" data-aos-delay="0.2">
               <p align="center">
-                  <a class="button" href="dl/resume.pdf">
+                  <a class="button" href="dl/resume.pdf" onClick="ga('send', 'event', 'resume', 'download-resume', 1);">
                      <!--<i class="ion-code-download"></i>
                       <i class="ion-reply"></i> -->
                       Download Resume
@@ -191,7 +191,7 @@
 
                           <!-- single work -->
                           <div class="col-md-4 col-sm-6 ds competition class">
-                              <a id="demo07" href="https://github.com/markckoerner/Human_Activity_Recognition_BBDC_2019" class="portfolio_item"> <img src="img/portfolio/Distribution_Observation_Length_Label.png" alt="image" class="img-responsive" />
+                              <a id="demo07" href="https://github.com/markckoerner/Human_Activity_Recognition_BBDC_2019" class="portfolio_item" onClick="ga('send', 'event', 'project', 'click-bbdc', 'HAR_BBDC_2019' 1);"> <img src="img/portfolio/Distribution_Observation_Length_Label.png" alt="image" class="img-responsive" />
                                   <div class="portfolio_item_hover">
                                       <div class="portfolio-border clearfix">
                                           <div class="item_info"> <span>Bremen Big Data Challenge 2019: <br> Human Activity Recognition</span> <em>Competition / Class</em> </div>
@@ -203,7 +203,7 @@
 
                           <!-- single work -->
                           <div class="col-md-4 col-sm-6  class papers">
-                              <a id="demo01" href="dl/PSMproject_Koerner.pdf" class="portfolio_item"> <img src="img/portfolio/PPos_Dist.png" alt="image" class="img-responsive" />
+                              <a id="demo01" href="dl/PSMproject_Koerner.pdf" class="portfolio_item" onClick="ga('send', 'event', 'project', 'click-PSMproj','PSM_Project',1);"> <img src="img/portfolio/PPos_Dist.png" alt="image" class="img-responsive" />
                                   <div class="portfolio_item_hover">
                                       <div class="portfolio-border clearfix">
                                           <div class="item_info"> <span>Principles of Statistical Modeling: <br> A short flight over the lands of Basketball Statistics</span> <em>Class / Papers</em> </div>
@@ -215,7 +215,7 @@
 
                           <!-- single work -->
                           <div class="col-md-4 col-sm-6 career">
-                              <a id="demo02" href="https://github.com/markckoerner/Resume" class="portfolio_item"> <img src="img/portfolio/resume.png" alt="image" class="img-responsive" />
+                              <a id="demo02" href="https://github.com/markckoerner/Resume" class="portfolio_item" onClick="ga('send', 'event', 'project', 'click-resume', 'Resume', 1);"> <img src="img/portfolio/resume.png" alt="image" class="img-responsive" />
                                   <div class="portfolio_item_hover">
                                       <div class="portfolio-border clearfix">
                                           <div class="item_info"> <span>LaTex Resume</span> <em>Career</em> </div>
@@ -335,6 +335,8 @@
       </div>
   </div> -->
 
+  <!-- Google Analytics -->
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
   <!-- jQuery -->
   <script src="js/jquery.js"></script>
   <!--  plugins  -->

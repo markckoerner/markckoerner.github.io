@@ -80,7 +80,7 @@ $(document).ready(function () {
     });
 
     //  isotope
-    $('#projects').waitForImages(function () {
+    $('/#projects').waitForImages(function () {
         var $container = $('.portfolio_container');
         $container.isotope({
             filter: '*',
