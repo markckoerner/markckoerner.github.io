@@ -32,7 +32,7 @@ $(document).ready(function () {
                 $(this).addClass('active');
                 nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
                 window.history.pushState({url: "/#" + $(this).attr('href') + ""}, $(document).title, "/#" + $(this).attr('id'));
-                ga('set', {title: $(this).attr('href'), page: "/#" + $(this).attr('id')});
+                ga('set', {title: $(this).attr('id'), page: "/#" + $(this).attr('id')});
                 ga('send', 'pageview');
             }
         });
