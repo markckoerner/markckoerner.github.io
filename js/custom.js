@@ -31,6 +31,7 @@ $(document).ready(function () {
 
                 $(this).addClass('active');
                 nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
+                window.history.pushState({url: "/" + $(this).attr('href') + ""}, $(document).title, "/" + $(this).attr('id'));
             }
         });
     });
@@ -80,7 +81,7 @@ $(document).ready(function () {
     });
 
     //  isotope
-    $('/#projects').waitForImages(function () {
+    $('#projects').waitForImages(function () {
         var $container = $('.portfolio_container');
         $container.isotope({
             filter: '*',
