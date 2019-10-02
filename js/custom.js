@@ -25,7 +25,7 @@ $(document).ready(function () {
             var top = $(this).offset().top - nav_height,
                 bottom = top + $(this).outerHeight();
 
-            var startURL = window.location.href;
+            //var startURL = window.location.href;
 
             if (cur_pos >= top && cur_pos <= bottom) {
                 nav.find('a').removeClass('active');
@@ -38,13 +38,23 @@ $(document).ready(function () {
 
             }
 
-            var newURL = window.location.href;
+            //var newURL = window.location.href;
 
-            if (startURL != newURL) {
-                ga('set', {title: $(this).attr('id'), page: "/#" + $(this).attr('id')});
+            //if (startURL != newURL) {
+            //    ga('set', {title: $(this).attr('id'), page: "/#" + $(this).attr('id')});
+            //    ga('send', 'pageview');
+            //}
+        });
+    });
+
+    $(window).on('scroll', function() {
+        var newURL = window.location.href;
+        setTimeout(function() {
+            if (newURL != window.location.href){
+                ga('set', {title: window.location.pathname.slice(2), page: window.location.pathname});
                 ga('send', 'pageview');
             }
-        });
+        }, 100);
     });
 
     nav.find('a').on('click', function () {
