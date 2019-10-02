@@ -25,6 +25,8 @@ $(document).ready(function () {
             var top = $(this).offset().top - nav_height,
                 bottom = top + $(this).outerHeight();
 
+            var activeClass = nav.find('a')
+
             if (cur_pos >= top && cur_pos <= bottom) {
                 nav.find('a').removeClass('active');
                 sections.removeClass('active');
@@ -32,6 +34,12 @@ $(document).ready(function () {
                 $(this).addClass('active');
                 nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
                 window.history.pushState({url: "/#" + $(this).attr('href') + ""}, $(document).title, "/#" + $(this).attr('id'));
+
+            }
+
+            var newactiveClass = nav.find('a')
+
+            if (activeClass != newactiveClass) {
                 ga('set', {title: $(this).attr('id'), page: "/#" + $(this).attr('id')});
                 ga('send', 'pageview');
             }
