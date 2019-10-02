@@ -25,7 +25,7 @@ $(document).ready(function () {
             var top = $(this).offset().top - nav_height,
                 bottom = top + $(this).outerHeight();
 
-            var activeClass = nav.find('a')
+            var startURL = window.location.href;
 
             if (cur_pos >= top && cur_pos <= bottom) {
                 nav.find('a').removeClass('active');
@@ -38,9 +38,9 @@ $(document).ready(function () {
 
             }
 
-            var newactiveClass = nav.find('a')
+            var newURL = window.location.href;
 
-            if (activeClass != newactiveClass) {
+            if (startURL != newURL) {
                 ga('set', {title: $(this).attr('id'), page: "/#" + $(this).attr('id')});
                 ga('send', 'pageview');
             }
