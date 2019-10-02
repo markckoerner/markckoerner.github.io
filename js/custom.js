@@ -32,6 +32,8 @@ $(document).ready(function () {
                 $(this).addClass('active');
                 nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
                 window.history.pushState({url: "/" + $(this).attr('href') + ""}, $(document).title, "/" + $(this).attr('id'));
+                ga('set', $(this).attr('href'), "/" + $(this).attr('id'));
+                ga('send', 'pageview');
             }
         });
     });
