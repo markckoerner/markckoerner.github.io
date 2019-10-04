@@ -38,16 +38,18 @@ $(document).ready(function () {
 
             }
 
-            var newURL = window.location.href;
-
-            if (startURL != newURL) {
-                ga('set', {title: $(this).attr('id'), page: "/#" + $(this).attr('id')});
+            //if (startURL != newURL) {
+            //    ga('set', {title: $(this).attr('id'), page: "/#" + $(this).attr('id')});
                 //ga('send', 'pageview');
-            }
+            //}
         });
+
+        var newURL = window.location.href;
+
         if (startURL != newURL) {
-                ga('send', 'pageview');
-            }
+            ga('set', {title: window.location.pathname.slice(2), page: window.location.pathname});
+            ga('send', 'pageview');
+        };
     });
 
     //$(window).on('scroll', function() {
