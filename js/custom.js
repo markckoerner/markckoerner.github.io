@@ -17,7 +17,7 @@ $(document).ready(function () {
     var sections = $('.section'),
         nav = $('.navbar-fixed-top,footer'),
         nav_height = nav.outerHeight(),
-        nav_click = 0, //workaround to stop sending pageviews
+        nav_click = 0,
         nav_click_scroll_duration = 600;
 
     $(window).on('scroll', function () {
@@ -46,20 +46,23 @@ $(document).ready(function () {
         if (nav_click == 0) {
             // Google Analytics Behavior Flow Tracking by manual pageviews when scrolling
             if (startURL != newURL) {
-                let path = url.match(RegExp('/#.*'));
-                ga('set', {title: ("" + path).slice(2), page: "" + path});
+                let path = newURL.match(RegExp('/#.*'));
+                let page_path = ("" + path);
+                let title_path = ("" + path).slice(2);
+
+                ga('set', {title: title_path, page: page_path});
                 ga('send', 'pageview');
+
+                console.log(title_path);
+                console.log(page_path);
             }
         }
     });
 
     nav.find('a').on('click', function () {
-        console.log("click function triggered")
 
         var $el = $(this),
             id = $el.attr('href');
-
-        console.log("Moved page to section: " + id + " by clicking on nav bar")
 
         nav_click = 1;
 
