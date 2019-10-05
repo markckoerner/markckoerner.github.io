@@ -8,7 +8,7 @@ $(window).load(function () {
     $('body').delay(350).css({
         'overflow': 'visible'
     });
-})
+});
 
 $(document).ready(function () {
     "use strict";
@@ -16,9 +16,12 @@ $(document).ready(function () {
     // scroll menu
     var sections = $('.section'),
         nav = $('.navbar-fixed-top,footer'),
-        nav_height = nav.outerHeight();
+        nav_height = nav.outerHeight(),
+        nav_click = 0, //workaround to stop sending pageviews
+        nav_click_scroll_duration = 600;
 
     $(window).on('scroll', function () {
+
         var cur_pos = $(this).scrollTop();
 
         var startURL = window.location.href;
@@ -34,41 +37,37 @@ $(document).ready(function () {
                 $(this).addClass('active');
                 nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
                 window.history.pushState({url: "/#" + $(this).attr('href') + ""}, $(document).title, "/#" + $(this).attr('id'));
-                //ga('set', {title: $(this).attr('id'), page: "/#" + $(this).attr('id')});
 
             }
-
-            //if (startURL != newURL) {
-            //    ga('set', {title: $(this).attr('id'), page: "/#" + $(this).attr('id')});
-                //ga('send', 'pageview');
-            //}
         });
 
         var newURL = window.location.href;
 
-        if (startURL != newURL) {
-            ga('set', {title: window.location.pathname.slice(2), page: window.location.pathname});
-            ga('send', 'pageview');
-        };
+        if (nav_click == 0) {
+            // Google Analytics Behavior Flow Tracking by manual pageviews when scrolling
+            if (startURL != newURL) {
+                let path = url.match(RegExp('/#.*'));
+                ga('set', {title: ("" + path).slice(2), page: "" + path});
+                ga('send', 'pageview');
+            }
+        }
     });
 
-    //$(window).on('scroll', function() {
-        //var newURL = window.location.href;
-        //setTimeout(function() {
-            //if (newURL != window.location.href){
-            //    ga('set', {title: window.location.pathname.slice(2), page: window.location.pathname});
-            //    ga('send', 'pageview');
-            //}
-        //}, 100);
-    //});
-
     nav.find('a').on('click', function () {
+        console.log("click function triggered")
+
         var $el = $(this),
             id = $el.attr('href');
 
+        console.log("Moved page to section: " + id + " by clicking on nav bar")
+
+        nav_click = 1;
+
         $('html, body').animate({
             scrollTop: $(id).offset().top - nav_height + 2
-        }, 600);
+        }, nav_click_scroll_duration);
+
+        setTimeout(function() {nav_click = 0}, nav_click_scroll_duration - 50);
 
         return false;
     });

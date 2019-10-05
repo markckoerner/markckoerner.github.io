@@ -29,7 +29,18 @@
     <meta charset="utf-8" data-react-helmet = "True">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Mark Körner - Data Science</title>
+    <link rel="canonical" href="www.markkoerner.com">
+    <meta name="description" content="Data Engineering Graduate Student & Aspiring Data Scientist" data-react-helmet="True">
+
+    <meta property="og:url" content="www.markkoerner.com/" data-react-helmet="True">
+    <meta property="og:type" content="website" data-react-helmet="True">
+    <meta property="og:title" content="Mark Koerner" data-react-helmet="True">
+    <meta property="og:image" content="/img/portfolio/website.png" data-react-helmet="True">
+    <meta property="og:image:alt" content="Home Page" data-react-helmet="True">
+    <meta property="og:description" content="Data Engineering Graduate Student & Aspiring Data Scientist" data-react-helmet="True">
+    <meta property="og:site_name" content="Mark Koerner" data-react-helmet="True">
 
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <!-- Bootstrap -->
@@ -63,10 +74,10 @@
   <header class="navbar-fixed-top">
       <nav>
           <ul>
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#education">Education</a></li>
-              <li><a href="#projects">Projects</a></li>
+              <li><a href="#home" onClick="ga('send', 'event', 'navbar', 'click-home', 'Navbar Home',1);">Home</a></li>
+              <li><a href="#about" onClick="ga('send', 'event', 'navbar', 'click-about', 'Navbar About',1);">About</a></li>
+              <li><a href="#education" onClick="ga('send', 'event', 'navbar', 'click-education', 'Navbar Education',1);">Education</a></li>
+              <li><a href="#projects" onClick="ga('send', 'event', 'navbar', 'click-projects', 'Navbar Projects',1);">Projects</a></li>
               <!-- <li><a href="#contact">contact</a></li> -->
           </ul>
       </nav>
