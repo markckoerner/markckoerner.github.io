@@ -52,9 +52,6 @@ $(document).ready(function () {
 
                 ga('set', {title: title_path, page: page_path});
                 ga('send', 'pageview');
-
-                console.log(title_path);
-                console.log(page_path);
             }
         }
     });
